@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPUnit;
+namespace Tests\BootstrapTheme;
 
 use App\Entity\Addressing\Address;
 use App\Entity\Order\Order;
@@ -10,7 +10,6 @@ use App\Entity\User\ShopUser;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Tests\BootstrapTheme\AbstractTest;
 
 /**
  * @internal
@@ -65,7 +64,7 @@ final class PagesCanBeAccessedTest extends AbstractTest
         self::assertPageTitleContains('Fashion Web Store');
     }
 
-    private function guestPagesProvider(): \Generator
+    public function guestPagesProvider(): \Generator
     {
         yield 'sylius_shop_homepage' => ['sylius_shop_homepage', []];
         yield 'sylius_shop_contact_request' => ['sylius_shop_contact_request', []];
@@ -82,7 +81,7 @@ final class PagesCanBeAccessedTest extends AbstractTest
         yield 'sylius_shop_cart_summary' => ['sylius_shop_cart_summary', []];
     }
 
-    private function accountPagesProvider(): \Generator
+    public function accountPagesProvider(): \Generator
     {
         yield 'sylius_shop_account_dashboard' => ['sylius_shop_account_dashboard', []];
         yield 'sylius_shop_account_profile_update' => ['sylius_shop_account_profile_update', []];
